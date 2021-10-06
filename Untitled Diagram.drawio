@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-10-06T22:03:06.761Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.71 Safari/537.36" etag="5ibSbLH8jel3buanizgs" version="15.4.3" type="github">
+<mxfile host="app.diagrams.net" modified="2021-10-06T22:06:19.632Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.71 Safari/537.36" etag="39WKfmZbt7ZgM2JRqCJJ" version="15.4.3" type="github">
   <diagram name="Page-1" id="7e0a89b8-554c-2b80-1dc8-d5c74ca68de4">
     <mxGraphModel dx="959" dy="1663" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
       <root>
@@ -234,7 +234,7 @@
             <mxPoint x="590.0952380952381" y="640.0000000000002" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="th5WkZY910EmhiSI5jE_-72" value="" style="pointerEvents=1;fillColor=strokeColor;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.diodes.diode;rotation=0;" vertex="1" parent="1">
+        <mxCell id="th5WkZY910EmhiSI5jE_-72" value="2V" style="pointerEvents=1;fillColor=strokeColor;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.diodes.diode;rotation=0;" vertex="1" parent="1">
           <mxGeometry x="510" y="549" width="80" height="60" as="geometry" />
         </mxCell>
         <mxCell id="th5WkZY910EmhiSI5jE_-73" value="" style="group" vertex="1" connectable="0" parent="1">
@@ -335,7 +335,7 @@
         <mxCell id="th5WkZY910EmhiSI5jE_-95" value="" style="pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.resistors.resistor_1;" vertex="1" parent="1">
           <mxGeometry x="320" y="564" width="40" height="10" as="geometry" />
         </mxCell>
-        <mxCell id="th5WkZY910EmhiSI5jE_-96" value="" style="pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.resistors.resistor_1;" vertex="1" parent="1">
+        <mxCell id="th5WkZY910EmhiSI5jE_-96" value="100&amp;nbsp;" style="pointerEvents=1;verticalLabelPosition=middle;shadow=0;dashed=0;align=center;html=1;verticalAlign=middle;shape=mxgraph.electrical.resistors.resistor_1;labelPosition=center;" vertex="1" parent="1">
           <mxGeometry x="470" y="574" width="40" height="10" as="geometry" />
         </mxCell>
         <mxCell id="th5WkZY910EmhiSI5jE_-100" value="2" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
