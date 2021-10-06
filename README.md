@@ -10,3 +10,4 @@ https://cdn.sparkfun.com/assets/learn_tutorials/5/8/8/Vox_Imperium_bb.png
 
 
 
+A diagramme for the pin number of the teensy can be found here : https://www.pjrc.com/store/teensy32.html
