@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-10-06T22:28:14.101Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.71 Safari/537.36" etag="7XB8uOffrprMBSxbcQDA" version="15.4.3" type="github">
+<mxfile host="app.diagrams.net" modified="2021-10-06T22:29:17.221Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.71 Safari/537.36" etag="HF80kYtmFZTBEYslh4OB" version="15.4.3" type="github">
   <diagram name="Page-1" id="7e0a89b8-554c-2b80-1dc8-d5c74ca68de4">
     <mxGraphModel dx="1354" dy="1997" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
       <root>
@@ -275,7 +275,7 @@
             <mxPoint x="-13" y="27" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="th5WkZY910EmhiSI5jE_-4" value="Shield&amp;nbsp;&lt;br&gt;Connexion avec le teensy a voir sur&amp;nbsp;&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="th5WkZY910EmhiSI5jE_-73" vertex="1">
+        <mxCell id="th5WkZY910EmhiSI5jE_-4" value="Prop Shield&amp;nbsp; or Prop Shield LC&lt;br&gt;See connexion here :&amp;nbsp;https://learn.sparkfun.com/tutorials/vox-imperium-stormtrooper-voice-changer/all?print=1&amp;nbsp;&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="th5WkZY910EmhiSI5jE_-73" vertex="1">
           <mxGeometry y="45" width="520" height="170" as="geometry" />
         </mxCell>
         <mxCell id="th5WkZY910EmhiSI5jE_-17" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;endArrow=none;endFill=0;fillColor=#e51400;strokeColor=#B20000;strokeWidth=2;" parent="th5WkZY910EmhiSI5jE_-73" source="th5WkZY910EmhiSI5jE_-7" edge="1">
