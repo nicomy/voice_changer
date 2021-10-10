@@ -12,6 +12,13 @@ X map_Generic(X x, M in_min, N in_max, O out_min, Q out_max){
   return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
 
+
+void blink(int led, int time_mms){
+  digitalWrite(led, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(time_mms);               // wait for a second
+  digitalWrite(led, LOW);    // turn the LED off by making the voltage LOW
+}
+
 // GUItool: begin automatically generated code
 AudioInputAnalog         adc1;           //xy=332,625
 AudioFilterBiquad        biquad1;        //xy=471,625
@@ -47,13 +54,19 @@ const int pink2 = A19 ; //=30
 //const int pink1 = A5 ; // =19
 //const int pink1 = A6 ;
 //const int inter = 19 ;
-const int pinb1 = 6 ;
-const int pinb2 = 7 ;
-const int inter = 5 ; // 19 ;
+
+
+const int led_b1 = 2 ;
+const int pinb1 = 3 ;
+const int led_b2 = 4 ;
+const int pinb2 = 5 ;
+const int led_inter = 6 ; 
+const int inter = 7 ; // 19 ;
+
 
 //const int pinb3 = A6 ;  //=20
 
-const bool DEBUG = true;
+const bool DEBUG = false;
 const bool FEEDBACK_SUPPRESSION = true;  // Enables input filter
 const unsigned int LOWPASS_CUTOFF = 2000; // Hz
 const unsigned int CROSSOVER_FREQ = 1800; // Filter center freq
@@ -64,6 +77,8 @@ const float TREBLE_GAIN_OFF = 0.0;
 const float SQUELCH_CUTOFF = 0.15;    // Voice threshold
 const int HYSTERESIS_TIME_ON = 20;    // Milliseconds
 const int HYSTERESIS_TIME_OFF = 400;  // Milliseconds
+const int button_time = 15 ; // Milliseconds 
+
 
 Bounce button0 = Bounce(pinb1, 15);
 Bounce button1 = Bounce(pinb2, 15);
@@ -106,6 +121,10 @@ void setup() {
   pinMode(pinb1, INPUT_PULLUP);
   pinMode(pinb2, INPUT_PULLUP);
   pinMode(inter, INPUT_PULLUP);
+
+  pinMode(led_b1, OUTPUT);
+  pinMode(led_b2, OUTPUT);
+  pinMode(led_inter, OUTPUT);
   //pinMode(pinb3, INPUT_PULLUP);
 
   // Initialize amplifier
@@ -157,15 +176,16 @@ void setup() {
 
   SerialMillisecondCounter = millis();
 
-
-  Serial.println("Finished init");
+  if(DEBUG){
+    Serial.println("Finished init");  
+  }
+  
   //digitalWrite(AMP_ENABLE, HIGH);
 }
 
-int val; //temporary variable for memory usage reporting.
 
 void loop() {
-  if (millis() - SerialMillisecondCounter >= 5000   && DEBUG) {
+  if (DEBUG && millis() - SerialMillisecondCounter >= 5000  ) {
     Serial.print("Proc = ");
     Serial.print(AudioProcessorUsage());
     Serial.print(" (");
@@ -193,19 +213,14 @@ void loop() {
   }*/
 
   if(inter1 == LOW){
-    ratio=  map_Generic(crush,0,63.72,0.5,2.0 );
-    //msec= map_Generic(freq,0,63.72,0.5,2.0 );
-    Serial.print( crush);
-    delay(100) ;
-    Serial.print( "\n freq is  :");
-    Serial.println( freq);
-    Serial.print( '\n');
-    
+    ratio=  map_Generic(crush,0,63,0.5,2.0 );
+    msec= map_Generic(freq,0,63,0.2,37.0 );
+
     granular1.beginPitchShift(msec) ;
+    digitalWrite(led_inter, HIGH);
   }
  else{
-    delay(500) ;
-    Serial.print("button is up !! \n ");
+    digitalWrite(led_inter, LOW);
     granular1.stop() ;
   }
 
@@ -220,8 +235,12 @@ void loop() {
     //if (current_CrushBits >= 2) { //eachtime you press it, deduct 1 bit from the settings.
     if (current_CrushBits >= 4) {
         current_CrushBits--;
+        blink(led_b1,button_time);
     } else {
       current_CrushBits = 16; // if you get down to 1 go back to the top.
+      blink(led_b1,button_time);
+      delay(button_time);
+      blink(led_b1,button_time);
     }
 
     bitcrusher1.bits(current_CrushBits);
@@ -239,8 +258,12 @@ void loop() {
     //Bitcrusher SampleRate // the lowest sensible setting is 345. There is a 128 sample buffer, and this will copy sample 1, to each of the other 127 samples.
     if (current_SampleRate >= 690) { // 345 * 2, so we can do one more divide
       current_SampleRate = current_SampleRate / 2; // half the sample rate each time
+      blink(led_b2,button_time);
     } else {
       current_SampleRate=44100; // if you get down to the minimum then go back to the top and start over.
+      blink(led_b2,button_time);
+      delay(button_time);
+      blink(led_b2,button_time);
     }
 
     //bitcrusher1.bits(current_CrushBits);
@@ -337,7 +360,7 @@ void loop() {
     //msec :37.61
     granular1.setSpeed(ratio);
     //granular1.beginPitchShift(37) ;
-    interactive_menu(&msec,&ratio ) ;
+    //interactive_menu(&msec,&ratio ) ;
 }
 
 
@@ -365,7 +388,7 @@ void interactive_menu(float *msec, float*ratio ) {
       case 'm':
           cmd_sub = (cmd.substring(1)).toFloat() ;
       //    Serial.println(cmd_sub);
-          *msec = cmd_sub ;
+          *msec = cmd_sub ; 
           Serial.print("msec : ");
           Serial.println(*msec);
            break;
