@@ -58,8 +58,10 @@ const int pink2 = A19 ; //=30
 
 const int led_b1 = 2 ;
 const int pinb1 = 3 ;
-const int led_b2 = 4 ;
-const int pinb2 = 5 ;
+
+const int led_b2 = 5 ;
+const int pinb2 = 4 ;
+
 const int led_inter = 6 ; 
 const int inter = 7 ; // 19 ;
 
